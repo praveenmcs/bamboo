@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [bambooTestSuite]">
+  <listeners>
+    <listener class-name="utilities.AllureListener"/>
+  </listeners>
+  <test name="bambooTests(failed)">
+    <classes>
+      <class name="com.bambooui.bamboo.Module4">
+        <methods>
+          <include name="TS04_TC01"/>
+        </methods>
+      </class> <!-- com.bambooui.bamboo.Module4 -->
+    </classes>
+  </test> <!-- bambooTests(failed) -->
+</suite> <!-- Failed suite [bambooTestSuite] -->
