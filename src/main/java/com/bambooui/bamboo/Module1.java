@@ -39,7 +39,6 @@ public class Module1 extends Utilities{
 @Story("Login Validation")
 public void TC001() throws IOException, InterruptedException
 {
-	log.info("This is first test");
 	bambBasePage
 		.login()
 		.validateDashboardPage()
@@ -79,6 +78,6 @@ public void TC003() throws IOException
 @AfterTest
 public void endOfClass()
 {
-	driver.close();
+	bambBasePage.driver.quit();
 }
 }

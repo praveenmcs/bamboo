@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,10 +20,10 @@ public class BambooDashboard extends Utilities{
 	@Step("Dasboard Display name validation")
 	public BambooDashboard validateDashboardPage() throws IllegalMonitorStateException, InterruptedException
 	{
-		waitfor(30000);
-		String text = getElementText(By.xpath("//h3[@id='displayName']"));
+		waitfor(10000);
+		String text = getElementText(By.xpath("//span[@class='welcome-name-text']"));
 		log.info(text);
-		Assert.assertTrue(true, "Dashboard loaded successfully");
+		Assert.assertTrue(text.equalsIgnoreCase("Praveenkumar"), "Dashboard loaded successfully");
 		return this;
 	}
 	
@@ -50,7 +51,10 @@ public class BambooDashboard extends Utilities{
 	@Step("Logout from Dashboard")
 	public BambooBasePage logoutFromDash()
 	{
-		click(By.xpath("//a[@id='logoutButton']"));
+		Actions mouseAction = new Actions(driver);
+		mouseAction.moveToElement(driver.findElement(By.xpath("//div[@id='nav-small-user-name']"))).build().perform();
+		click(By.xpath("//div[@id='logout-button']"));
+		driver.switchTo().alert().accept();
 		Assert.assertTrue(true, "Clicked on logout");
 		return new BambooBasePage(driver);
 	}

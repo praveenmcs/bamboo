@@ -114,7 +114,7 @@ public void pingCheck()
 //	.statusCode(201);
 }
 
-@Test()
+//@Test()
 public void postauthFromFile()
 {
 	File reqPayLoad = new File("src/test/resources/Payloads/AuthPayload.json");

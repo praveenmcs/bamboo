@@ -17,7 +17,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
-import org.testng.Reporter;
 
 import com.bambooui.bamboo.Module1;
 
@@ -74,13 +73,13 @@ public class BambooBasePage extends Utilities{
 	public BambooDashboard login() throws IOException, InterruptedException{
 		setup();
 		log.info("Entering credentials");
-		click(By.xpath("//div[@class='ui-dropdown-label-container']"));
-		click((By.xpath("//li[@aria-label='english']")));
-		enterValues(By.xpath("//input[@formcontrolname='username']"),cred.getProperty("username"));
-		enterValues(By.xpath("//input[@formcontrolname='password']"),cred.getProperty("password"));
-		click(By.xpath("//button[@id='loginButton']"));
+		click(By.xpath("//button[@id='cookie-popup-agree']"));
+		click(By.xpath("//a[@href='/vn/en/bbc/login']//span[contains(text(),'Login')]"));
+		
+		enterValues(By.xpath("//input[@id='login-username']"),cred.getProperty("username"));
+		enterValues(By.xpath("//input[@id='login-password']"),cred.getProperty("password"));
+		click(By.xpath("//button[@id='buttonlogin']"));
 		log.info("Username and password entered");
-		Reporter.log("test");
 		return new BambooDashboard(driver);
 	}
 	

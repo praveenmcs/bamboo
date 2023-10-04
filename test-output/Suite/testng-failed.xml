@@ -6,7 +6,7 @@
       <class name="com.bambooui.bamboo.Module1">
         <methods>
           <include name="endOfClass"/>
-          <include name="TC003"/>
+          <include name="TC001"/>
         </methods>
       </class> <!-- com.bambooui.bamboo.Module1 -->
     </classes>

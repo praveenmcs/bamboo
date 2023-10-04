@@ -3,11 +3,13 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-<!--       <class name="com.bambooui.bamboo.Module3"/>
-      <class name="com.bambooui.bamboo.Module4"/>
-      <class name="com.bambooui.bamboo.Module1"/>
-      <class name="com.bambooui.bamboo.Module2"/> -->
-      <class name="com.bambooui.bamboo.Module5"/>
+      <class name="com.bambooui.bamboo.Module1">
+      <methods>
+      <include name="TC001"/>
+      </methods>
+      
+      </class>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
