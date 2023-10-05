@@ -1,5 +1,6 @@
 package com.bambooui.bamboo;
 
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Logger;
@@ -28,6 +29,7 @@ public class Module1 extends Utilities{
 	
 	
 	
+	@Test
 	public String testdata(String key) throws IOException
 	{
 		return Utilities.getData(key,className);
@@ -64,16 +66,6 @@ public void TC002() throws IOException, InterruptedException {
 	;
 }
 
-@Test
-@Description("DummyTestcase")
-@Epic("Module1")
-public void TC003() throws IOException
-{
-	bambBasePage
-	.setup()
-	.waitForPageLoad()
-	;
-}
 
 @AfterTest
 public void endOfClass()

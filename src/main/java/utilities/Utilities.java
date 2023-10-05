@@ -6,11 +6,8 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.*;
-import org.openqa.selenium.JavascriptExecutor;
-
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,7 +18,6 @@ public class Utilities{
 	protected static WebDriver driver;
 	public static Properties data = new Properties();
 	JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
-	
 	public static String getData(String key,String className) throws IOException
 	{
 		FileReader dataReader = new FileReader("src\\test\\resources\\testdata\\"+className+".properties");
@@ -81,10 +77,16 @@ public class Utilities{
 	{
 		click(dropdwnele);
 		if(value.length()>0){
-		click(By.xpath("//p-dropdown[@id='classTicket']//ul//li[@aria-label='Point_calculator.b_excl']"));
+			click(By.xpath("//li[contains(text(),'"+value+"')]"));
 		}
 		//For now it always selects business exclusive
 		log.info(value+": selected from dropdown");
+	}
+	
+	public void scrollTogivenPixels(int pixels)
+	{
+		//jsExecutor.executeScript("arguments[0].scrollIntoView();",element);
+		jsExecutor.executeScript("window.scrollBy(0,"+pixels+")");
 	}
 	
 

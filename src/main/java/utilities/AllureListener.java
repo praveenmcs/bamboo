@@ -57,6 +57,7 @@ public class AllureListener implements ITestListener{
         {
         	System.out.println("Screenshot in prg.......");
         	saveFailureScreenShot(driver);
+        	driver.quit();
         }
         //saveTextLog(testClass.getClass().getCanonicalName()+": FAILED CASE.. Screenshot done");
     }		

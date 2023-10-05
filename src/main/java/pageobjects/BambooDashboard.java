@@ -13,6 +13,7 @@ import utilities.Utilities;
 
 public class BambooDashboard extends Utilities{
 	private static	Logger log = Logger.getLogger(BambooDashboard.class.getName());
+	Actions mouseAction = new Actions(driver);
 	public BambooDashboard(WebDriver driver) {
 		this.driver=driver;
 	}
@@ -39,19 +40,26 @@ public class BambooDashboard extends Utilities{
 		return new BambooProfile(driver);
 		
 	}
+	
+	@Step("Navigating from home page to myprofile section")
+	public void navigateToMyProfileSectionnew()
+	{
+		mouseAction.moveToElement(driver.findElement(By.xpath("//div[@id='nav-small-user-name']"))).build().perform();
+		click(By.xpath("//a[@href='/vn/en/bbc/my-profile']"));
+	}
 	@Step("Navigate to Points Calculation")
 	public BambooPointsCalculator navigateToPointsCalc() throws IllegalMonitorStateException, InterruptedException
 	{
 		waitfor(10000);
 		log.info("To check the time it waits till page loaded");
-		click(By.xpath("//ul[@role='navigation']//a[@routerlink='/pointcalculator']"));
+		navigateToMyProfileSectionnew();
+		click(By.xpath("//li//a[@href='/vn/en/bbc/mileage-calculator']"));
 		waitfor(3000);
 		return new BambooPointsCalculator(driver);
 	}
 	@Step("Logout from Dashboard")
 	public BambooBasePage logoutFromDash()
 	{
-		Actions mouseAction = new Actions(driver);
 		mouseAction.moveToElement(driver.findElement(By.xpath("//div[@id='nav-small-user-name']"))).build().perform();
 		click(By.xpath("//div[@id='logout-button']"));
 		driver.switchTo().alert().accept();
@@ -63,7 +71,9 @@ public class BambooDashboard extends Utilities{
 	{
 		waitfor(10000);
 		log.info("To check the time it waits till page loaded");
-		click(By.xpath("//ul[@role='navigation']//a[@routerlink='/myflights']"));
+		mouseAction.moveToElement(driver.findElement(By.xpath("//div[@id='nav-small-user-name']"))).build().perform();
+		click(By.xpath("//a[@href='/vn/en/bbc/my-profile']"));
+		click(By.xpath("//p[@class='link_subName'][contains(text(),'My Flights')]"));
 		waitfor(3000);
 		return new BambooMyFlights(driver);
 	}

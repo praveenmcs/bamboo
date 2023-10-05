@@ -1,9 +1,11 @@
 package com.bambooui.bamboo;
 
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
@@ -19,6 +21,7 @@ public class Module4 extends Utilities{
 	private static	Logger log = Logger.getLogger(Module4.class.getName());
 	String className = this.getClass().getSimpleName();
 
+	@Test
 	public String testdata(String key) throws IOException
 	{
 		return Utilities.getData(key,className);
@@ -37,5 +40,11 @@ public class Module4 extends Utilities{
 			.logOutFromMyActivitiesPage()
 			;
 		
+	}
+	
+	@AfterTest
+	public void endOfClass()
+	{
+		bambBasePage.driver.quit();
 	}
 }

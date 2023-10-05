@@ -1,6 +1,7 @@
 package com.bambooapi;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
