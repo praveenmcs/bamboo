@@ -43,7 +43,10 @@ public class Utilities{
 		return driver.findElement(ele).getText();
 	}
 	
-	
+	public String getElementAttributeValue(By ele)
+	{
+		return driver.findElement(ele).getAttribute("value");
+	}
 	public void waitfor(long waitime) throws IllegalMonitorStateException, InterruptedException{
 		Thread.sleep(waitime);
 	}

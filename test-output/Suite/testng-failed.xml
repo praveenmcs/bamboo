@@ -3,11 +3,12 @@
 <suite name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="com.bambooui.bamboo.Module2">
+      <class name="com.bambooui.bamboo.Module1">
         <methods>
-          <include name="TS02_TC01"/>
+          <include name="endOfClass"/>
+          <include name="TS01_TC02"/>
         </methods>
-      </class> <!-- com.bambooui.bamboo.Module2 -->
+      </class> <!-- com.bambooui.bamboo.Module1 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -36,8 +36,8 @@ public class Module5 extends Utilities{
 		bambBasePage
 			.login()
 			.navigateToEarnStatusPage()
-			.validationOfTopupPointsPage()
-			.validateStatusQualifyingPointsButton()
+			.validationOfTopupPointsPageURL()
+			.validateStatusQualifyingPointsSection()
 			.logOutFromTopUpPointsPage()
 			;
 		

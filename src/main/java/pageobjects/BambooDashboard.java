@@ -31,11 +31,8 @@ public class BambooDashboard extends Utilities{
 	@Step("Navigation to My Profile Page")
 	public BambooProfile navigateToMyProfilePage() throws IllegalMonitorStateException, InterruptedException {
 		
-		//waitForElementAppears(By.xpath("//ul[@role='navigation']//a[@routerlink='/profile']"));
-		//waitForPageLoad();
 		waitfor(10000);
-		log.info("To check the time it waits till page loaded");
-		click(By.xpath("//ul[@role='navigation']//a[@routerlink='/profile']"));
+		navigateToMyProfileSectionnew();
 		waitfor(3000);
 		return new BambooProfile(driver);
 		
@@ -82,7 +79,8 @@ public class BambooDashboard extends Utilities{
 	{
 		waitfor(10000);
 		log.info("To check the time it waits till page loaded");
-		click(By.xpath("//ul[@role='navigation']//a[@routerlink='/myactivity']"));
+		navigateToMyProfileSectionnew();
+		click(By.xpath("//p[@class='link_subName'][contains(text(),'My  Activities')]"));
 		waitfor(3000);
 		return new BambooMyActivity(driver);
 	}
@@ -92,7 +90,8 @@ public class BambooDashboard extends Utilities{
 	{
 		log.info("Navigating to earn status page");
 		waitfor(10000);
-		click(By.xpath("//ul[@role='navigation']//a[@routerlink='/topup_point']"));
+		navigateToMyProfileSectionnew();
+		click(By.xpath("//p[@class='link_subName'][contains(text(),'Top-up Points')]"));
 		waitfor(3000);
 		return new EarnStatusPage(driver);
 	}

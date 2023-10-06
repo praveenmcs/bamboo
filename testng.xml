@@ -2,9 +2,9 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="com.bambooui.bamboo.Module2">
+      <class name="com.bambooui.bamboo.Module1">
       <methods>
-      <include name="TS02_TC01"></include></methods>
+      <include name="TS01_TC01"></include></methods>
       </class>
     </classes>
   </test> <!-- Test -->

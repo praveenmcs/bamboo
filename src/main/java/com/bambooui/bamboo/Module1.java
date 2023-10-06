@@ -26,10 +26,6 @@ public class Module1 extends Utilities{
 	private static	Logger log = Logger.getLogger(Module1.class.getName());
 	String className = this.getClass().getSimpleName();
 
-	
-	
-	
-	@Test
 	public String testdata(String key) throws IOException
 	{
 		return Utilities.getData(key,className);
@@ -39,7 +35,7 @@ public class Module1 extends Utilities{
 @Description("Test case to check Login and Landing page functionality")
 @Epic("Module1")
 @Story("Login Validation")
-public void TC001() throws IOException, InterruptedException
+public void TS01_TC01() throws IOException, InterruptedException
 {
 	bambBasePage
 		.login()
@@ -53,7 +49,7 @@ public void TC001() throws IOException, InterruptedException
 @Description("Test case to Login and navigate to My Profile page and validate the basic details")
 @Epic("Module1")
 @Story("Profile Validation")
-public void TC002() throws IOException, InterruptedException {
+public void TS01_TC02() throws IOException, InterruptedException {
 	
 	bambBasePage
 	.login()
