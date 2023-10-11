@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="utilities.AllureListener"/>
+  </listeners>
   <test name="Test(failed)">
     <classes>
-      <class name="com.bambooui.bamboo.Module1">
+      <class name="com.bambooui.bamboo.Module6">
         <methods>
-          <include name="endOfClass"/>
-          <include name="TS01_TC02"/>
+          <include name="TS06_TC01"/>
         </methods>
-      </class> <!-- com.bambooui.bamboo.Module1 -->
+      </class> <!-- com.bambooui.bamboo.Module6 -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

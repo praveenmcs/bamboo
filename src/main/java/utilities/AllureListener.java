@@ -14,7 +14,7 @@ public class AllureListener implements ITestListener{
 
 	private static String getTestName(ITestResult iTestResult)
 	{
-		return iTestResult.getMethod().getConstructorOrMethod().getName();
+		return iTestResult.getTestName();
 	}
 	
 	@Attachment
@@ -31,7 +31,7 @@ public class AllureListener implements ITestListener{
 	
 	@Override		
     public void onFinish(ITestContext arg) {					
-        System.out.println("********"+arg.getName()+">>>TESTS FINISHED********");				
+        System.out.println("********"+arg.getClass()+">>>TESTS FINISHED********");				
         		
     }		
 
@@ -50,14 +50,14 @@ public class AllureListener implements ITestListener{
 
     @Override		
     public void onTestFailure(ITestResult arg) {					
-    	System.out.println("********"+arg.getTestName()+">>>TEST FAILED********");
+    	System.out.println("********"+AllureListener.getTestName(arg)+">>>TEST FAILED********");
     	Object testClass = arg.getInstance();
         WebDriver driver = BambooBasePage.getDriver();
         if(driver instanceof WebDriver)
         {
         	System.out.println("Screenshot in prg.......");
         	saveFailureScreenShot(driver);
-        	driver.quit();
+        	//driver.quit();
         }
         //saveTextLog(testClass.getClass().getCanonicalName()+": FAILED CASE.. Screenshot done");
     }		
@@ -75,7 +75,7 @@ public class AllureListener implements ITestListener{
 
     @Override		
     public void onTestSuccess(ITestResult arg) {					
-    	System.out.println("********"+arg.getTestName()+">>>TESTS SUCCESS********");				
+    	System.out.println("********"+arg.getInstanceName()+">>>TESTS SUCCESS********");				
         		
     }	
 }

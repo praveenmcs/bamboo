@@ -3,6 +3,7 @@ package pageobjects;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -14,6 +15,7 @@ import utilities.Utilities;
 public class BambooDashboard extends Utilities{
 	private static	Logger log = Logger.getLogger(BambooDashboard.class.getName());
 	Actions mouseAction = new Actions(driver);
+	JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
 	public BambooDashboard(WebDriver driver) {
 		this.driver=driver;
 	}
@@ -94,6 +96,55 @@ public class BambooDashboard extends Utilities{
 		click(By.xpath("//p[@class='link_subName'][contains(text(),'Top-up Points')]"));
 		waitfor(3000);
 		return new EarnStatusPage(driver);
+	}
+	
+	@Step("One way or roundtrip selection")
+	public BambooDashboard selectOneWay(boolean b) throws InterruptedException {
+		Thread.sleep(10000);
+		scrollTogivenPixels(300);
+		if(b)
+		{
+			click(By.xpath("//input[@id='oneWayRadio']"));
+		}
+		else
+		{
+			click(By.xpath("//input[@id='roundTripRadio']"));
+		}
+		return this;
+	}
+
+	@Step("Flight search parameters")
+	public BambooDashboard enterSearchFlights(String fromAirport, String toAirport) {
+		//click(By.xpath("//input[@id='from']"));
+		enterValues(By.xpath("//input[@id='from']"),fromAirport);
+		String script = "document.querySelector(\".lists-location > ul >li[data-code='"+fromAirport+"']\").click()";
+		jsExecutor.executeScript(script);
+		
+		click(By.xpath("//input[@id='to']"));
+		enterValues(By.xpath("//input[@id='to']"),toAirport);
+		script = "document.querySelector(\".lists-location > ul >li[class='to-locations'][data-code='"+toAirport+"']\").click()";
+		jsExecutor.executeScript(script);
+		
+		click(By.xpath("//div[@class='calendar-table']//td[@class='available'][2]"));
+		
+		return this;
+	}
+	
+	@Step("Date selection")
+	public BambooDashboard selectDate()
+	{
+		click(By.xpath("(//div[@class='calendar-table']//td[@class='available'])"));
+		//clicks on available dates non weekends
+		return this;
+	}
+	
+	@Step("Search click")
+	public BambooDashboard clickOnSearch() throws InterruptedException
+	{
+		Thread.sleep(10000);
+		click(By.xpath("//input[@id='search-flight-btn']"));
+		Assert.assertTrue(true, "Flight search clicked");
+		return this;
 	}
 	
 }

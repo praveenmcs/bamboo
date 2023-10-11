@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="27614" started-at="2023-10-06T05:21:16Z" finished-at="2023-10-06T05:21:44Z">
+  <suite name="Suite" duration-ms="32908" started-at="2023-10-11T06:28:36Z" finished-at="2023-10-11T06:29:09Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="27614" started-at="2023-10-06T05:21:16Z" finished-at="2023-10-06T05:21:44Z">
-      <class name="com.bambooui.bamboo.Module1">
-        <test-method status="PASS" signature="TS01_TC01()[pri:0, instance:com.bambooui.bamboo.Module1@150d80c4]" name="TS01_TC01" duration-ms="25968" started-at="2023-10-06T10:51:16Z" description="Test case to check Login and Landing page functionality" finished-at="2023-10-06T10:51:42Z">
+    <test name="Test" duration-ms="32908" started-at="2023-10-11T06:28:36Z" finished-at="2023-10-11T06:29:09Z">
+      <class name="com.bambooui.bamboo.Module6">
+        <test-method status="PASS" signature="TS06_TC01()[pri:0, instance:com.bambooui.bamboo.Module6@5942ee04]" name="TS06_TC01" duration-ms="32768" started-at="2023-10-11T11:58:36Z" description="Test Case to search and book a flight" finished-at="2023-10-11T11:59:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TS01_TC01 -->
-        <test-method status="PASS" signature="endOfClass()[pri:0, instance:com.bambooui.bamboo.Module1@150d80c4]" name="endOfClass" is-config="true" duration-ms="1168" started-at="2023-10-06T10:51:43Z" finished-at="2023-10-06T10:51:44Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endOfClass -->
-      </class> <!-- com.bambooui.bamboo.Module1 -->
+        </test-method> <!-- TS06_TC01 -->
+      </class> <!-- com.bambooui.bamboo.Module6 -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
